@@ -1,0 +1,165 @@
+/* 1. ESTILOS GENERALES */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #1c5566;
+    line-height: 1.6; /* Mejora la legibilidad en cualquier pantalla */
+}
+
+/* 2. NAVEGACIÓN (HEADER) */
+nav {
+    background-color: #257b7e;
+    padding: 1rem; /* Usamos rem para escalas consistentes */
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Distribuye mejor el espacio en PC */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    height: clamp(50px, 10vw, 70px); /* Tamaño fluido: se encoge en móviles */
+    width: clamp(50px, 10vw, 70px);
+    border-radius: 50%;
+    margin-right: 15px; 
+    background-color: #cdf9ff;
+    object-fit: cover;
+}
+
+nav h1 {
+    color: #1c5566;
+    font-size: clamp(1.1em, 4vw, 1.5em); /* Texto fluido */
+    background-color: #cdf9ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0; 
+    flex-grow: 1;
+    max-width: fit-content;
+}
+
+nav ul {
+    display: flex; 
+    list-style: none; 
+    padding: 0;
+    margin: 10px 0 0 0; /* Espacio extra por si baja de línea */
+    gap: 10px;
+}
+
+/* 3. SECCIÓN DE CONTENIDO PRINCIPAL */
+.contenido {
+    padding: clamp(15px, 5vw, 30px); /* Padding que crece con la pantalla */
+    background-color: #16c1d8;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.contenido img {
+    display: block;
+    margin: 0 auto 20px; 
+    width: 100%;
+    max-width: 600px; /* Aumentado para mejor visualización en PC */
+    height: auto;
+    border: solid clamp(4pt, 1.5vw, 9pt) rgb(143, 204, 235); /* Grosor de borde fluido */
+    box-sizing: border-box;
+}
+
+.contenido h1 {
+    font-size: clamp(1.5em, 6vw, 2.5em);
+    background-color: #cdf9ff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.contenido p {
+    font-size: clamp(1em, 3vw, 1.2em);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #cdf9ff;
+    border-radius: 5px;
+}
+
+/* 4. LISTA DE CAPÍTULOS (SISTEMA DE REJILLA) */
+.capitulos-lista {
+    padding: 20px;
+    display: grid; /* Cambiado a Grid para un control total */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* MAGIA: Crea columnas según el espacio */
+    gap: 20px;
+    background-color: #16c1d8;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.capitulos-lista h2 {
+    grid-column: 1 / -1; /* Ocupa todo el ancho de la rejilla */
+    font-size: clamp(1.8em, 5vw, 2.2em);
+    background-color: #cdf9ff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.capitulo-card {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border: 3px solid #13b8be96; 
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinea el botón siempre abajo */
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.capitulo-card:hover {
+    transform: translateY(-5px);
+}
+
+.capitulo-img {
+    width: 100%;
+    height: 150px; /* Altura fija para que todas las tarjetas sean iguales */
+    object-fit: contain; /* No deforma la imagen */
+    margin-bottom: 15px;
+}
+
+.boton-ver {
+    background-color: #a0a0a0; /* Color gris por "No disponible" */
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.boton-ver:hover{
+    background-color: #13b8be96;
+    color: #f0f8ff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 5. AJUSTES FINOS PARA MÓVILES EXTREMOS */
+@media (max-width: 480px) {
+    nav {
+        justify-content: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    nav a {
+        display: block;
+        text-align: center;
+    }
+}
